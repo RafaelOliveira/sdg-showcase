@@ -1,0 +1,10 @@
+<TextureAtlas imagePath="textures.png">
+	<SubTexture name="arrow.png" x="250" y="196" width="30" height="35"/>
+	<SubTexture name="obj_cookiejar001.png" x="196" y="196" width="52" height="84"/>
+	<SubTexture name="obj_crate001.png" x="196" y="98" width="96" height="96"/>
+	<SubTexture name="obj_crate002.png" x="98" y="98" width="96" height="96"/>
+	<SubTexture name="obj_crate003.png" x="98" y="196" width="96" height="96"/>
+	<SubTexture name="obj_crate004.png" x="0" y="196" width="96" height="96"/>
+	<SubTexture name="obj_fan001.png" x="0" y="0" width="252" height="96"/>
+	<SubTexture name="obj_tv001.png" x="0" y="98" width="96" height="96"/>
+</TextureAtlas>

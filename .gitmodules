@@ -1,0 +1,3 @@
+[submodule "Libraries/Sdg"]
+	path = Libraries/Sdg
+	url = https://github.com/RafaelOliveira/Sdg
