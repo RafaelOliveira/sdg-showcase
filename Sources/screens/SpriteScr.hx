@@ -38,7 +38,7 @@ class SpriteScr extends Screen
 
 		create(0, 520, new BitmapText('Sprites', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
 
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'tilemap');
+		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'graphiclist');
 		add(arrowRight);
 	}
 
@@ -47,6 +47,6 @@ class SpriteScr extends Screen
 		super.update();
 					
 		if (Keyboard.isPressed('right'))
-			Sdg.switchScreen('tilemap');
+			Sdg.switchScreen('graphiclist');
 	}
 }

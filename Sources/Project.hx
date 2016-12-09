@@ -27,11 +27,10 @@ class Project
 		engine.addManager(new Keyboard());
 
 		BitmapText.loadFont('Vera', Assets.images.vera, Assets.blobs.vera_fnt);
-		Atlas.loadAtlasShoebox(Assets.images.textures, Assets.blobs.textures_xml);
-
-		
+		Atlas.loadAtlasShoebox(Assets.images.textures, Assets.blobs.textures_xml);		
 		
 		Sdg.addScreen('sprite', new SpriteScr());
+		Sdg.addScreen('graphiclist', new GraphicListScr());
 		Sdg.addScreen('tilemap', new TilemapScr());		
 		Sdg.addScreen('tilesprite', new TileSpriteScr());		
 
