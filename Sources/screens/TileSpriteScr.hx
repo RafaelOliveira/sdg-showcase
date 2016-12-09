@@ -16,10 +16,10 @@ class TileSpriteScr extends Screen
 	{
 		super();
 
-		create(20, 20, new TileSprite(Assets.images.pattern1, 250, 100, 1, 1));
+		create(20, 20, new TileSprite('pattern1', 250, 100, 1, 1));
 		create(290, 20, new TileSprite(Assets.images.pattern2, 150, 400, 1, 2));
 		create(20, 140, new TileSprite(Assets.images.pattern3, 250, 200));
-		create(20, 440, new TileSprite(Assets.images.pattern1, Sdg.gameWidth - 40, 50, 0, -0.3));
+		create(20, 440, new TileSprite('pattern1', Sdg.gameWidth - 40, 50, 0, -0.3));
 
 		create(0, 520, new BitmapText('TileSprites', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));		
 		

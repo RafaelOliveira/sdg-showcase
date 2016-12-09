@@ -32,7 +32,7 @@ class TilemapScr extends Screen
 
 		create(0, 520, new BitmapText('Tilemap - PyxelEdit', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
 
-		var arrowLeft = new Arrow(20, 520, 'graphiclist', true);
+		var arrowLeft = new Arrow(20, 520, 'ninepatch', true);
 		add(arrowLeft);
 
 		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'tilesprite');
@@ -44,7 +44,7 @@ class TilemapScr extends Screen
 		super.update();
 
 		if (Keyboard.isPressed('left'))
-			Sdg.switchScreen('graphiclist');			
+			Sdg.switchScreen('ninepatch');			
 		else if (Keyboard.isPressed('right'))
 			Sdg.switchScreen('tilesprite');
 	}

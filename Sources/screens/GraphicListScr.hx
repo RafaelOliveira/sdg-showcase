@@ -22,7 +22,7 @@ class GraphicListScr extends Screen
 		var arrowLeft = new Arrow(20, 520, 'sprite', true);
 		add(arrowLeft);
 
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'tilemap');
+		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'ninepatch');
 		add(arrowRight);
 	}
 
@@ -33,6 +33,6 @@ class GraphicListScr extends Screen
 		if (Keyboard.isPressed('left'))
 			Sdg.switchScreen('sprite');			
 		else if (Keyboard.isPressed('right'))
-			Sdg.switchScreen('tilemap');
+			Sdg.switchScreen('ninepatch');
 	}
 }
