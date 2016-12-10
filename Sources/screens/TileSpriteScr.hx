@@ -25,6 +25,9 @@ class TileSpriteScr extends Screen
 		
 		var arrowLeft = new Arrow(20, 520, 'tilemap', true);
 		add(arrowLeft);
+
+		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'shape');
+		add(arrowRight);
 	}
 
 	override public function update()
@@ -33,5 +36,7 @@ class TileSpriteScr extends Screen
 		
 		if (Keyboard.isPressed('left'))
 			Sdg.switchScreen('tilemap');
+		else if (Keyboard.isPressed('right'))
+			Sdg.switchScreen('shape');
 	}
 }

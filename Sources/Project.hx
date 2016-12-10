@@ -33,7 +33,8 @@ class Project
 		Sdg.addScreen('graphiclist', new GraphicListScr());
 		Sdg.addScreen('ninepatch', new NinePatchScr());
 		Sdg.addScreen('tilemap', new TilemapScr());		
-		Sdg.addScreen('tilesprite', new TileSpriteScr());		
+		Sdg.addScreen('tilesprite', new TileSpriteScr());
+		Sdg.addScreen('shape', new ShapeScr());
 
 		Sdg.switchScreen('sprite');
 

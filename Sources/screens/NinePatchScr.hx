@@ -36,7 +36,7 @@ class NinePatchScr extends Screen
 
 		if (Keyboard.isPressed('left'))
 			Sdg.switchScreen('graphiclist');
-		if (Keyboard.isPressed('right'))
+		else if (Keyboard.isPressed('right'))
 			Sdg.switchScreen('tilemap');
 	}
 }

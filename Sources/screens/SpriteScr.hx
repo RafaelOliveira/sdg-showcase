@@ -38,6 +38,9 @@ class SpriteScr extends Screen
 
 		create(0, 520, new BitmapText('Sprites', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
 
+		var arrowLeft = new Arrow(20, 520, 'shape', true);
+		add(arrowLeft);
+		
 		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'graphiclist');
 		add(arrowRight);
 	}
@@ -45,8 +48,10 @@ class SpriteScr extends Screen
 	override public function update()
 	{
 		super.update();
-					
-		if (Keyboard.isPressed('right'))
+
+		if (Keyboard.isPressed('left'))
+			Sdg.switchScreen('shape');			
+		else if (Keyboard.isPressed('right'))
 			Sdg.switchScreen('graphiclist');
 	}
 }
