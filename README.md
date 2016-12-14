@@ -12,4 +12,7 @@ http://opengameart.org/content/planets-and-stars-set-high-res
 http://2dgameartforfree.blogspot.com.br/2013/07/crates-and-boxes-1.html
 http://2dgameartforfree.blogspot.com.br/2013/08/household-items.html
 https://www.fontsquirrel.com/fonts/Bitstream-Vera-Sans
+https://www.fontsquirrel.com/fonts/alex-brush
+https://www.fontsquirrel.com/fonts/pacifico
+https://www.fontsquirrel.com/fonts/oswald
 ```

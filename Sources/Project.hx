@@ -26,8 +26,12 @@ class Project
 		engine.addManager(new Mouse());
 		engine.addManager(new Keyboard());
 
+		Atlas.loadAtlasShoebox(Assets.images.textures, Assets.blobs.textures_xml);
+		
 		BitmapText.loadFont('Vera', Assets.images.vera, Assets.blobs.vera_fnt);
-		Atlas.loadAtlasShoebox(Assets.images.textures, Assets.blobs.textures_xml);		
+		BitmapText.loadFont('AlexBrush', 'AlexBrush', Assets.blobs.AlexBrush_fnt);
+		BitmapText.loadFont('Oswald', Assets.images.oswald, Assets.blobs.oswald_fnt);
+		BitmapText.loadFont('Pacifico', Assets.images.pacifico, Assets.blobs.pacifico_fnt);		
 		
 		Sdg.addScreen('sprite', new SpriteScr());
 		Sdg.addScreen('graphiclist', new GraphicListScr());
@@ -35,10 +39,12 @@ class Project
 		Sdg.addScreen('tilemap', new TilemapScr());		
 		Sdg.addScreen('tilesprite', new TileSpriteScr());
 		Sdg.addScreen('shape', new ShapeScr());
+		Sdg.addScreen('bitmaptext', new BitmapTextScr());
+		Sdg.addScreen('text', new TextScr());
 
 		Sdg.switchScreen('sprite');
 
 		System.notifyOnRender(engine.render);
 		Scheduler.addTimeTask(engine.update, 0, 1 / 60);
-	}	
+	}
 }

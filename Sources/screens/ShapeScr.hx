@@ -40,7 +40,7 @@ class ShapeScr extends Screen
 		var arrowLeft = new Arrow(20, 520, 'tilesprite', true);
 		add(arrowLeft);
 
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'sprite');
+		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'bitmaptext');
 		add(arrowRight);
 	}
 
@@ -51,6 +51,6 @@ class ShapeScr extends Screen
 		if (Keyboard.isPressed('left'))
 			Sdg.switchScreen('tilesprite');
 		else if (Keyboard.isPressed('right'))
-			Sdg.switchScreen('sprite');
+			Sdg.switchScreen('bitmaptext');
 	}
 }
