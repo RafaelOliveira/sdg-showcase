@@ -12,6 +12,7 @@ import sdg.atlas.Atlas;
 import sdg.graphics.text.BitmapText;
 import sdg.manager.Mouse;
 import sdg.manager.Keyboard;
+import sdg.collision.Hitbox;
 import screens.*;
 
 class Project 
@@ -32,6 +33,7 @@ class Project
 		engine.addManager(new Keyboard());
 
 		engine.persistentRender = persistentRender;
+		Hitbox.init();
 
 		Atlas.loadAtlasShoebox(Assets.images.textures, Assets.blobs.textures_xml);
 		
@@ -76,6 +78,6 @@ class Project
 		g2.font = Assets.fonts.Vera;
 		g2.fontSize = 28;
 
-		g2.drawString(Std.string(fps.fps), Sdg.gameWidth - 40, 10);
+		g2.drawString(Std.string(fps.fps), Sdg.gameWidth - 39, 5);
 	}
 }

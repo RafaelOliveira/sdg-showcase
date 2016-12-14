@@ -1,20 +1,50 @@
 <TextureAtlas imagePath="textures.png">
 	<SubTexture name="AlexBrush.png" x="258" y="0" width="247" height="512"/>
-	<SubTexture name="arrow.png" x="200" y="552" width="30" height="35"/>
-	<SubTexture name="button1.png" x="468" y="514" width="50" height="50"/>
-	<SubTexture name="button2.png" x="148" y="552" width="50" height="50"/>
-	<SubTexture name="button3.png" x="507" y="294" width="50" height="50"/>
-	<SubTexture name="obj_cookiejar001.png" x="414" y="514" width="52" height="84"/>
-	<SubTexture name="obj_crate001.png" x="507" y="196" width="96" height="96"/>
-	<SubTexture name="obj_crate002.png" x="152" y="454" width="96" height="96"/>
-	<SubTexture name="obj_crate003.png" x="507" y="98" width="96" height="96"/>
-	<SubTexture name="obj_crate004.png" x="507" y="0" width="96" height="96"/>
+	<SubTexture name="Idle-1.png" x="559" y="350" width="50" height="68"/>
+	<SubTexture name="Idle-10.png" x="507" y="380" width="50" height="68"/>
+	<SubTexture name="Idle-2.png" x="559" y="280" width="50" height="68"/>
+	<SubTexture name="Idle-3.png" x="559" y="210" width="50" height="68"/>
+	<SubTexture name="Idle-4.png" x="559" y="140" width="50" height="68"/>
+	<SubTexture name="Idle-5.png" x="559" y="70" width="50" height="68"/>
+	<SubTexture name="Idle-6.png" x="559" y="0" width="50" height="68"/>
+	<SubTexture name="Idle-7.png" x="554" y="596" width="50" height="68"/>
+	<SubTexture name="Idle-8.png" x="554" y="526" width="50" height="68"/>
+	<SubTexture name="Idle-9.png" x="606" y="472" width="50" height="68"/>
+	<SubTexture name="Run-1.png" x="464" y="514" width="50" height="74"/>
+	<SubTexture name="Run-10.png" x="412" y="514" width="50" height="74"/>
+	<SubTexture name="Run-2.png" x="360" y="514" width="50" height="74"/>
+	<SubTexture name="Run-3.png" x="450" y="590" width="50" height="74"/>
+	<SubTexture name="Run-4.png" x="507" y="304" width="50" height="74"/>
+	<SubTexture name="Run-5.png" x="507" y="0" width="50" height="74"/>
+	<SubTexture name="Run-6.png" x="507" y="76" width="50" height="74"/>
+	<SubTexture name="Run-7.png" x="507" y="152" width="50" height="74"/>
+	<SubTexture name="Run-8.png" x="516" y="450" width="50" height="74"/>
+	<SubTexture name="Run-9.png" x="398" y="590" width="50" height="74"/>
+	<SubTexture name="Walk-1.png" x="502" y="590" width="50" height="74"/>
+	<SubTexture name="Walk-10.png" x="606" y="618" width="50" height="74"/>
+	<SubTexture name="Walk-2.png" x="606" y="542" width="50" height="74"/>
+	<SubTexture name="Walk-3.png" x="507" y="228" width="50" height="74"/>
+	<SubTexture name="Walk-4.png" x="620" y="380" width="50" height="74"/>
+	<SubTexture name="Walk-5.png" x="611" y="304" width="50" height="74"/>
+	<SubTexture name="Walk-6.png" x="611" y="228" width="50" height="74"/>
+	<SubTexture name="Walk-7.png" x="611" y="152" width="50" height="74"/>
+	<SubTexture name="Walk-8.png" x="611" y="76" width="50" height="74"/>
+	<SubTexture name="Walk-9.png" x="611" y="0" width="50" height="74"/>
+	<SubTexture name="arrow.png" x="278" y="662" width="30" height="35"/>
+	<SubTexture name="button1.png" x="568" y="420" width="50" height="50"/>
+	<SubTexture name="button2.png" x="204" y="454" width="50" height="50"/>
+	<SubTexture name="button3.png" x="152" y="454" width="50" height="50"/>
+	<SubTexture name="obj_cookiejar001.png" x="344" y="596" width="52" height="84"/>
+	<SubTexture name="obj_crate001.png" x="0" y="508" width="96" height="96"/>
+	<SubTexture name="obj_crate002.png" x="0" y="606" width="96" height="96"/>
+	<SubTexture name="obj_crate003.png" x="152" y="356" width="96" height="96"/>
+	<SubTexture name="obj_crate004.png" x="98" y="606" width="96" height="96"/>
 	<SubTexture name="obj_fan001.png" x="0" y="258" width="252" height="96"/>
-	<SubTexture name="obj_tv001.png" x="152" y="356" width="96" height="96"/>
-	<SubTexture name="particle.png" x="82" y="508" width="64" height="64"/>
+	<SubTexture name="obj_tv001.png" x="98" y="508" width="96" height="96"/>
+	<SubTexture name="particle.png" x="278" y="596" width="64" height="64"/>
 	<SubTexture name="pattern1.jpg" x="0" y="0" width="256" height="256"/>
 	<SubTexture name="planet-1.png" x="0" y="356" width="150" height="150"/>
-	<SubTexture name="planet-2.png" x="332" y="514" width="80" height="80"/>
-	<SubTexture name="planet-3.png" x="250" y="514" width="80" height="80"/>
-	<SubTexture name="planet-4.png" x="0" y="508" width="80" height="80"/>
+	<SubTexture name="planet-2.png" x="196" y="514" width="80" height="80"/>
+	<SubTexture name="planet-3.png" x="196" y="596" width="80" height="80"/>
+	<SubTexture name="planet-4.png" x="278" y="514" width="80" height="80"/>
 </TextureAtlas>
