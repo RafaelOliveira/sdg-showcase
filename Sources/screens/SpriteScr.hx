@@ -38,7 +38,7 @@ class SpriteScr extends Screen
 
 		create(0, 520, new BitmapText('Sprites', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
 
-		var arrowLeft = new Arrow(20, 520, 'text', true);
+		var arrowLeft = new Arrow(20, 520, 'particles', true);
 		add(arrowLeft);
 		
 		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'graphiclist');
@@ -50,7 +50,7 @@ class SpriteScr extends Screen
 		super.update();
 
 		if (Keyboard.isPressed('left'))
-			Sdg.switchScreen('text');
+			Sdg.switchScreen('particles');
 		else if (Keyboard.isPressed('right'))
 			Sdg.switchScreen('graphiclist');
 	}

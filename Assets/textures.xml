@@ -1,19 +1,20 @@
 <TextureAtlas imagePath="textures.png">
 	<SubTexture name="AlexBrush.png" x="258" y="0" width="247" height="512"/>
-	<SubTexture name="arrow.png" x="414" y="566" width="30" height="35"/>
-	<SubTexture name="button1.png" x="136" y="552" width="50" height="50"/>
-	<SubTexture name="button2.png" x="188" y="552" width="50" height="50"/>
-	<SubTexture name="button3.png" x="414" y="514" width="50" height="50"/>
-	<SubTexture name="obj_cookiejar001.png" x="82" y="508" width="52" height="84"/>
-	<SubTexture name="obj_crate001.png" x="507" y="98" width="96" height="96"/>
+	<SubTexture name="arrow.png" x="200" y="552" width="30" height="35"/>
+	<SubTexture name="button1.png" x="468" y="514" width="50" height="50"/>
+	<SubTexture name="button2.png" x="148" y="552" width="50" height="50"/>
+	<SubTexture name="button3.png" x="507" y="294" width="50" height="50"/>
+	<SubTexture name="obj_cookiejar001.png" x="414" y="514" width="52" height="84"/>
+	<SubTexture name="obj_crate001.png" x="507" y="196" width="96" height="96"/>
 	<SubTexture name="obj_crate002.png" x="152" y="454" width="96" height="96"/>
-	<SubTexture name="obj_crate003.png" x="507" y="196" width="96" height="96"/>
+	<SubTexture name="obj_crate003.png" x="507" y="98" width="96" height="96"/>
 	<SubTexture name="obj_crate004.png" x="507" y="0" width="96" height="96"/>
 	<SubTexture name="obj_fan001.png" x="0" y="258" width="252" height="96"/>
 	<SubTexture name="obj_tv001.png" x="152" y="356" width="96" height="96"/>
+	<SubTexture name="particle.png" x="82" y="508" width="64" height="64"/>
 	<SubTexture name="pattern1.jpg" x="0" y="0" width="256" height="256"/>
 	<SubTexture name="planet-1.png" x="0" y="356" width="150" height="150"/>
-	<SubTexture name="planet-2.png" x="0" y="508" width="80" height="80"/>
+	<SubTexture name="planet-2.png" x="332" y="514" width="80" height="80"/>
 	<SubTexture name="planet-3.png" x="250" y="514" width="80" height="80"/>
-	<SubTexture name="planet-4.png" x="332" y="514" width="80" height="80"/>
+	<SubTexture name="planet-4.png" x="0" y="508" width="80" height="80"/>
 </TextureAtlas>

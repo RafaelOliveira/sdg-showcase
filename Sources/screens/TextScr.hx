@@ -42,7 +42,7 @@ class TextScr extends Screen
 		var arrowLeft = new Arrow(20, 520, 'bitmaptext', true);
 		add(arrowLeft);
 
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'sprite');
+		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'particles');
 		add(arrowRight);
 	}
 
@@ -53,6 +53,6 @@ class TextScr extends Screen
 		if (Keyboard.isPressed('left'))
 			Sdg.switchScreen('bitmaptext');
 		else if (Keyboard.isPressed('right'))
-			Sdg.switchScreen('sprite');
+			Sdg.switchScreen('particles');
 	}
 }
