@@ -11,7 +11,7 @@ import sdg.components.Animator;
 
 class Player extends Object
 {
-	var sprite:Sprite;
+	var sprite:Sprite;	
 	var body:Hitbox;
 	var motion:Motion;
 	var animator:Animator;
@@ -24,8 +24,8 @@ class Player extends Object
 		sprite = new Sprite('Idle-1');
 		graphic = sprite;
 
-		setSizeAuto();
-		body = new Hitbox(this, 'tilemap_scr');
+		setSizeAuto();		
+		body = new Hitbox(this, 'tilemap1_scr');
 		
 		setupAnimations();
 		
@@ -35,7 +35,7 @@ class Player extends Object
 		motion.acceleration.y = 0.3;
 		addComponent(motion);
 		
-		onGround = true;
+		onGround = false;
 	}
 
 	function setupAnimations()
@@ -90,8 +90,8 @@ class Player extends Object
 			animator.play('idle');
 			graphic.y = 0;
 		}
-
-		body.moveBy(motion.velocity.x, motion.velocity.y, 'collision');	
+		
+		body.moveBy(motion.velocity.x, motion.velocity.y, 'collision');		
 
 		if (x < -width)
 			x = Sdg.gameWidth + x;
@@ -105,9 +105,9 @@ class Player extends Object
 	override public function moveCollideY(object:Object):Bool
 	{
 		if (motion.velocity.y > 0)
-		{									
+		{
 			onGround = true;
-			motion.velocity.y = 0;			
+			motion.velocity.y = 0;
 		}
 
 		return true;

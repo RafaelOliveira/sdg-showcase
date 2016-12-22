@@ -1,4 +1,4 @@
-A showcase to show all the features of [Sdg](https://github.com/RafaelOliveira/Sdg) (work in progress).
+A showcase to show all the features of [Sdg](https://github.com/RafaelOliveira/Sdg).
 
 Check online [here](http://sudoestegames.com/play/sdg-showcase).
 

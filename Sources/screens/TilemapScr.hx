@@ -52,25 +52,12 @@ class TilemapScr extends Screen
 
 	function setupTilemapCollision(objMapCollision:Object, tilemapCollision:Tilemap)
 	{
-		var grid = new GridEx(objMapCollision, 'tilemap_scr', tilemapCollision, null, 'collision');
+		var grid = new GridEx(objMapCollision, 'tilemap1_scr', tilemapCollision, null, 'collision');
 		
-		for (i in 1...7)
-			grid.setTilesetCollision(i, true);
-		for (i in 9...14)
-			grid.setTilesetCollision(i, true);
-		for (i in 17...22)
-			grid.setTilesetCollision(i, true);
-		for (i in 25...29)
-			grid.setTilesetCollision(i, true);
-		for (i in 33...39)
-			grid.setTilesetCollision(i, true);
-		for (i in 41...46)
-			grid.setTilesetCollision(i, true);
-		for (i in 48...53)
-			grid.setTilesetCollision(i, true);
-		for (i in 48...53)
-			grid.setTilesetCollision(i, true);
-		for (i in 56...60)
-			grid.setTilesetCollision(i, true);	
+		grid.setTileCollisionRect(1, 0, 4, 8, true);
+		grid.setTileCollisionRect(5, 0, 1, 3, true);
+		grid.setTileCollisionXY(6, 0, true);
+		grid.setTileCollisionRect(5, 4, 1, 3, true);
+		grid.setTileCollisionXY(6, 4, true);			
 	}	
 }

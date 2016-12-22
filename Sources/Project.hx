@@ -33,7 +33,8 @@ class Project
 		engine.addManager(new Keyboard());
 
 		engine.persistentRender = persistentRender;
-		Hitbox.init();
+
+		Hitbox.init();		
 
 		Atlas.loadAtlasShoebox(Assets.images.textures, Assets.blobs.textures_xml);
 		
@@ -45,7 +46,7 @@ class Project
 		Sdg.addScreen('sprite', new SpriteScr());
 		Sdg.addScreen('graphiclist', new GraphicListScr());
 		Sdg.addScreen('ninepatch', new NinePatchScr());
-		Sdg.addScreen('tilemap', new TilemapScr());		
+		Sdg.addScreen('tilemap', new TilemapScr());				
 		Sdg.addScreen('tilesprite', new TileSpriteScr());
 		Sdg.addScreen('shape', new ShapeScr());
 		Sdg.addScreen('bitmaptext', new BitmapTextScr());

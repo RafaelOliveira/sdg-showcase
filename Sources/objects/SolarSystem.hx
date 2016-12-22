@@ -46,8 +46,8 @@ class SolarSystem extends Object
 	{
 		var circle = new Circle(radius, Color.Cyan, false);
 		circle.alpha = 0.3;
-		circle.x = Sdg.halfGameWidth;
-		circle.y = Sdg.halfGameHeight;
+		circle.x = Sdg.halfGameWidth - radius;
+		circle.y = Sdg.halfGameHeight - radius;
 
 		assetList.push(circle);
 	}

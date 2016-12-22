@@ -32,8 +32,8 @@ class ShapeScr extends Screen
 				new Vector2(-58, 68)
 			], Color.Green));
 
-		create(460, 250, new Circle(60, Color.Yellow));				 
-		create(600, 350, new Circle(60, Color.Magenta, false, 3));
+		create(400, 190, new Circle(60, Color.Yellow));				 
+		create(540, 290, new Circle(60, Color.Magenta, false, 3));
 
 		create(0, 520, new BitmapText('Shapes', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));		
 		
