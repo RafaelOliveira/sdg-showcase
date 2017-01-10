@@ -13,7 +13,7 @@ import sdg.graphics.shapes.Polygon;
 import sdg.Screen;
 import sdg.Sdg;
 import sdg.manager.Keyboard;
-import sdg.collision.GridEx;
+import sdg.collision.Grid;
 import objects.Cloud;
 import objects.Arrow;
 import objects.Player;
@@ -33,14 +33,14 @@ class TilemapScr extends Screen
 		var objMapCollision = create(0, 37, maps[1]);
 		objMapCollision.setSizeAuto();
 
-		setupTilemapCollision(objMapCollision, maps[1]);
+		setupTilemapCollision(objMapCollision);
 
 		add(new Player(70, 120));
 
 		add(new Cloud(150, 130, 0.1, 0.5));
 		add(new Cloud(10, 100, 0.5));				
 
-		create(0, 465, new Text('Collision with Hitbox and GridEx', Assets.fonts.Oswald_Regular, 24, Sdg.gameWidth, { align: TextAlign.Center }));
+		create(0, 465, new Text('Collision with Hitbox and Grid', Assets.fonts.Oswald_Regular, 24, Sdg.gameWidth, { align: TextAlign.Center }));
 		create(0, 520, new BitmapText('Tilemap - PyxelEdit', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
 
 		var arrowLeft = new Arrow(20, 520, 'ninepatch', true);
@@ -50,14 +50,13 @@ class TilemapScr extends Screen
 		add(arrowRight);
 	}
 
-	function setupTilemapCollision(objMapCollision:Object, tilemapCollision:Tilemap)
+	function setupTilemapCollision(objMapCollision:Object)
 	{
-		var grid = new GridEx(objMapCollision, 'tilemap1_scr', tilemapCollision, null, 'collision');
+		var grid = new Grid(objMapCollision, 32, 32, 'collision');
 		
-		grid.setTileCollisionRect(1, 0, 4, 8, true);
-		grid.setTileCollisionRect(5, 0, 1, 3, true);
-		grid.setTileCollisionXY(6, 0, true);
-		grid.setTileCollisionRect(5, 4, 1, 3, true);
-		grid.setTileCollisionXY(6, 4, true);			
+		grid.setArea(2, 11, 7, 1, true);
+		grid.setArea(12, 10, 7, 1, true);
+		grid.setTile(21, 10, true);		
+		grid.setTile(23, 10, true);			
 	}	
 }

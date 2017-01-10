@@ -16,8 +16,8 @@ class SpriteScr extends Screen
 	{
 		super();
 		
-		var regions = Atlas.createRegionsFromAsset('obj_fan001', 84, 96);
-		Atlas.saveRegionListInCache(regions, 'fan-anim');
+		var regions = Atlas.createRegionList('obj_fan001', 84, 96);
+		Atlas.saveRegionList(regions, 'fan-anim');
 
 		var crate1 = create(200, 300, new Sprite('obj_crate001'));
 		crate1.setSizeAuto();

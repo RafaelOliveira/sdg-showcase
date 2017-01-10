@@ -17,15 +17,19 @@ class Player extends Object
 	var animator:Animator;
 	var onGround:Bool;
 
+	var py:Float;
+
 	public function new(x:Float, y:Float):Void
 	{
 		super(x, y);
+
+		py = y;
 		
 		sprite = new Sprite('Idle-1');
 		graphic = sprite;
 
 		setSizeAuto();		
-		body = new Hitbox(this, 'tilemap1_scr');
+		body = new Hitbox(this);
 		
 		setupAnimations();
 		
@@ -69,7 +73,7 @@ class Player extends Object
 			sprite.flip.x = false;
 		}
 
-		if (Keyboard.isPressed('z') && onGround)
+		if ((Keyboard.isPressed('z') || Keyboard.isPressed('up')) && onGround)
 		{
 			motion.velocity.y = -6;
 			onGround = false;
@@ -91,7 +95,13 @@ class Player extends Object
 			graphic.y = 0;
 		}
 		
-		body.moveBy(motion.velocity.x, motion.velocity.y, 'collision');		
+		body.moveBy(motion.velocity.x, motion.velocity.y, 'collision');	
+
+		if (y >= (py + 1))
+		{
+			onGround = false;
+			py = y;
+		}	
 
 		if (x < -width)
 			x = Sdg.gameWidth + x;
@@ -107,8 +117,10 @@ class Player extends Object
 		if (motion.velocity.y > 0)
 		{
 			onGround = true;
-			motion.velocity.y = 0;
+			py = y;
 		}
+
+		motion.velocity.y = 0;
 
 		return true;
 	}	
