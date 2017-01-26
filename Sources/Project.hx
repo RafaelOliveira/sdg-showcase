@@ -1,18 +1,18 @@
 package;
 
 import kha.Color;
+import kha.Canvas;
 import kha.Assets;
 import kha.Framebuffer;
 import kha.Scheduler;
 import kha.System;
-import kha.graphics2.Graphics;
-import sdg.Engine;
 import sdg.Sdg;
+import sdg.Engine;
 import sdg.atlas.Atlas;
-import sdg.graphics.text.BitmapText;
 import sdg.manager.Mouse;
 import sdg.manager.Keyboard;
 import sdg.collision.Hitbox;
+import sdg.graphics.text.BitmapText;
 import screens.*;
 
 class Project 
@@ -73,12 +73,12 @@ class Project
 		fps.calcFrames();
 	}
 
-	function persistentRender(g2:Graphics)
+	function persistentRender(canvas:Canvas)
 	{
-		g2.color = Color.White;
-		g2.font = Assets.fonts.Vera;
-		g2.fontSize = 28;
+		canvas.g2.color = Color.White;
+		canvas.g2.font = Assets.fonts.Vera;
+		canvas.g2.fontSize = 28;
 
-		g2.drawString(Std.string(fps.fps), Sdg.gameWidth - 39, 5);
+		canvas.g2.drawString(Std.string(fps.fps), Sdg.gameWidth - 39, 5);
 	}
 }
