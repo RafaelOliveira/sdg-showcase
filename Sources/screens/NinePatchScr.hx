@@ -5,12 +5,9 @@ import sdg.graphics.NinePatch;
 import sdg.graphics.text.BitmapText;
 import sdg.graphics.text.Text.TextAlign;
 import sdg.Sdg;
-import sdg.Screen;
-import sdg.manager.Keyboard;
 import objects.Fan;
-import objects.Arrow;
 
-class NinePatchScr extends Screen
+class NinePatchScr extends Play
 {
 	public function new()
 	{
@@ -21,22 +18,8 @@ class NinePatchScr extends Screen
 		create(420, 200, new NinePatch('button3', 7, 7, 8, 8, 200, 100));
 		create(180, 370, new NinePatch(Assets.images.button4, 5, 5, 10, 9, 250, 80));
 
-		create(0, 520, new BitmapText('NinePatch', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
+		create(0, 520, new BitmapText('NinePatch', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));		
 
-		var arrowLeft = new Arrow(20, 520, 'graphiclist', true);
-		add(arrowLeft);
-
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'tilemap');
-		add(arrowRight);
-	}
-
-	override public function update()
-	{
-		super.update();
-
-		if (Keyboard.isPressed('left'))
-			Sdg.switchScreen('graphiclist');
-		else if (Keyboard.isPressed('right'))
-			Sdg.switchScreen('tilemap');
+		addControls('graphiclist', 'tilemap');
 	}
 }

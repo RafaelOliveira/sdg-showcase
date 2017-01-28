@@ -13,6 +13,7 @@ import sdg.manager.Mouse;
 import sdg.manager.Keyboard;
 import sdg.collision.Hitbox;
 import sdg.graphics.text.BitmapText;
+import sdg.filters.*;
 import screens.*;
 
 class Project 
@@ -20,9 +21,13 @@ class Project
 	var engine:Engine;
 	var fps:FramesPerSecond;
 
+	public static var filterIndex:Int;
+	public static var filterNames:Array<String>;
+	public static var filters:Array<Filter>;	
+
 	public function new() 
 	{
-		Assets.loadEverything(assetsLoaded);		
+		Assets.loadEverything(assetsLoaded);
 	}
 
 	function assetsLoaded()
@@ -41,7 +46,15 @@ class Project
 		BitmapText.loadFont('Vera', Assets.images.vera, Assets.blobs.vera_fnt);
 		BitmapText.loadFont('AlexBrush', 'AlexBrush', Assets.blobs.AlexBrush_fnt);
 		BitmapText.loadFont('Oswald', Assets.images.oswald, Assets.blobs.oswald_fnt);
-		BitmapText.loadFont('Pacifico', Assets.images.pacifico, Assets.blobs.pacifico_fnt);		
+		BitmapText.loadFont('Pacifico', Assets.images.pacifico, Assets.blobs.pacifico_fnt);
+
+		filterIndex = -1;
+		filterNames = ['No filter', 'Brightness Contrast', 'Hue Saturation', 'DotScreen', 'Noise'];
+		filters = new Array<Filter>();				
+		filters.push(new BrightnessContrast(0.09, 0.45));		
+		filters.push(new HueSaturation(0.31));
+		filters.push(new DotScreen());
+		filters.push(new Noise());		
 		
 		Sdg.addScreen('sprite', new SpriteScr());
 		Sdg.addScreen('graphiclist', new GraphicListScr());
@@ -80,5 +93,20 @@ class Project
 		canvas.g2.fontSize = 28;
 
 		canvas.g2.drawString(Std.string(fps.fps), Sdg.gameWidth - 39, 5);
+	}
+
+	public static function changeFilterIndex(direction:Int)
+	{
+		filterIndex += direction;
+		
+		if (filterIndex < -1)
+			filterIndex = filters.length - 1;
+		else if (filterIndex > (filters.length - 1))
+			filterIndex = -1;
+	}
+
+	public static function getFilterName():String
+	{
+		return filterNames[filterIndex + 1];
 	}
 }

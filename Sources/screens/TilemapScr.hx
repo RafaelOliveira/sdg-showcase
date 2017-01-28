@@ -10,19 +10,16 @@ import sdg.graphics.text.BitmapText;
 import sdg.graphics.text.Text.TextAlign;
 import sdg.graphics.Sprite;
 import sdg.graphics.shapes.Polygon;
-import sdg.Screen;
 import sdg.Sdg;
-import sdg.manager.Keyboard;
 import sdg.collision.Grid;
 import objects.Cloud;
-import objects.Arrow;
 import objects.Player;
 
-class TilemapScr extends Screen
+class TilemapScr extends Play
 {
 	public function new()
 	{
-		super();
+		super(false);
 
 		var tileset = new Tileset(Assets.images.tileset, 32, 32);
 		var maps = Tilemap.createFromPyxelEdit(Assets.blobs.map_txt, tileset);
@@ -41,13 +38,9 @@ class TilemapScr extends Screen
 		add(new Cloud(10, 100, 0.5));				
 
 		create(0, 465, new Text('Collision with Hitbox and Grid', Assets.fonts.Oswald_Regular, 24, Sdg.gameWidth, { align: TextAlign.Center }));
-		create(0, 520, new BitmapText('Tilemap - PyxelEdit', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));
+		create(0, 520, new BitmapText('Tilemap - PyxelEdit', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));		
 
-		var arrowLeft = new Arrow(20, 520, 'ninepatch', true);
-		add(arrowLeft);
-
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'tilesprite');
-		add(arrowRight);
+		addControls('ninepatch', 'tilesprite');
 	}
 
 	function setupTilemapCollision(objMapCollision:Object)
@@ -56,7 +49,7 @@ class TilemapScr extends Screen
 		
 		grid.setArea(2, 11, 7, 1, true);
 		grid.setArea(12, 10, 7, 1, true);
-		grid.setTile(21, 10, true);		
-		grid.setTile(23, 10, true);			
+		grid.setTile(21, 10, true);
+		grid.setTile(23, 10, true);
 	}	
 }

@@ -8,15 +8,16 @@ import sdg.manager.Mouse;
 
 class Arrow extends Object
 {
-	var goToScreen:String;
+	var onClick:Void->Void;
 
-	public function new(x:Float, y:Float, goToScreen:String, left:Bool = false)
+	public function new(x:Float, y:Float, left:Bool, onClick:Void->Void, scale:Float = 1.0)
 	{
 		super(x, y);
 
-		this.goToScreen = goToScreen;
+		this.onClick = onClick;
 
 		var sprite = new Sprite('arrow');
+		sprite.setScale(scale);
 		sprite.flip.x = left;
 		graphic = sprite;
 		graphic.color = Color.Red;
@@ -33,7 +34,7 @@ class Arrow extends Object
 			graphic.color = 0xffff9393;
 
 			if (Mouse.isPressed())
-				Sdg.switchScreen(goToScreen);
+				onClick();
 		}
 		else
 			graphic.color = Color.Red;		

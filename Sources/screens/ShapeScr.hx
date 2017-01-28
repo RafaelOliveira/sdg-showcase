@@ -6,12 +6,9 @@ import sdg.graphics.shapes.Polygon;
 import sdg.graphics.shapes.Circle;
 import sdg.graphics.text.BitmapText;
 import sdg.graphics.text.Text.TextAlign;
-import sdg.Screen;
 import sdg.Sdg;
-import sdg.manager.Keyboard;
-import objects.Arrow;
 
-class ShapeScr extends Screen
+class ShapeScr extends Play
 {
 	public function new()
 	{
@@ -36,21 +33,7 @@ class ShapeScr extends Screen
 		create(540, 290, new Circle(60, Color.Magenta, false, 3));
 
 		create(0, 520, new BitmapText('Shapes', 'Vera', Sdg.gameWidth, { align: TextAlign.Center }));		
-		
-		var arrowLeft = new Arrow(20, 520, 'tilesprite', true);
-		add(arrowLeft);
 
-		var arrowRight = new Arrow(Sdg.gameWidth - 50, 520, 'bitmaptext');
-		add(arrowRight);
-	}
-
-	override public function update()
-	{
-		super.update();
-		
-		if (Keyboard.isPressed('left'))
-			Sdg.switchScreen('tilesprite');
-		else if (Keyboard.isPressed('right'))
-			Sdg.switchScreen('bitmaptext');
-	}
+		addControls('tilesprite', 'bitmaptext');
+	}	
 }
