@@ -8,6 +8,7 @@ import sdg.graphics.Sprite;
 import sdg.manager.Keyboard;
 import sdg.components.Motion;
 import sdg.components.Animator;
+import sdg.manager.GamePad;
 
 class Player extends Object
 {
@@ -16,6 +17,7 @@ class Player extends Object
 	var motion:Motion;
 	var animator:Animator;
 	var onGround:Bool;
+	var gamepad:GamePad;
 
 	var py:Float;
 
@@ -28,7 +30,7 @@ class Player extends Object
 		sprite = new Sprite('Idle-1');
 		graphic = sprite;
 
-		setSizeAuto();		
+		setSizeAuto();
 		body = new Hitbox(this);
 		
 		setupAnimations();
@@ -40,6 +42,8 @@ class Player extends Object
 		addComponent(motion);
 		
 		onGround = false;
+
+		gamepad = GamePad.get();
 	}
 
 	function setupAnimations()
@@ -58,22 +62,22 @@ class Player extends Object
 
 	override public function update():Void
 	{
-		super.update();
+		super.update();		
 
 		motion.acceleration.x = 0;		
 
-		if (Keyboard.isHeld('left'))
+		if (Keyboard.isHeld('left') || gamepad.leftAnalog.x < 0)
 		{
 			motion.acceleration.x = -0.7;
 			sprite.flip.x = true;	
 		}            
-        else if (Keyboard.isHeld('right'))
+        else if (Keyboard.isHeld('right') || gamepad.leftAnalog.x > 0)
 		{		
 			motion.acceleration.x = 0.7;
 			sprite.flip.x = false;
 		}
 
-		if ((Keyboard.isPressed('z') || Keyboard.isPressed('up')) && onGround)
+		if ((Keyboard.isPressed('z') || Keyboard.isPressed('up') || gamepad.isPressed(GamePad.B_CIRCLE)) && onGround)
 		{
 			motion.velocity.y = -6;
 			onGround = false;

@@ -11,6 +11,7 @@ import sdg.Engine;
 import sdg.atlas.Atlas;
 import sdg.manager.Mouse;
 import sdg.manager.Keyboard;
+import sdg.manager.GamePad;
 import sdg.collision.Hitbox;
 import sdg.graphics.text.BitmapText;
 import sdg.filters.*;
@@ -19,7 +20,7 @@ import screens.*;
 class Project 
 {
 	var engine:Engine;
-	var fps:FramesPerSecond;
+	var fps:FramesPerSecond;	
 
 	public static var filterIndex:Int;
 	public static var filterNames:Array<String>;
@@ -36,6 +37,7 @@ class Project
 
 		engine.addManager(new Mouse());
 		engine.addManager(new Keyboard());
+		engine.addManager(GamePad.getManager());
 
 		engine.persistentRender = persistentRender;
 
