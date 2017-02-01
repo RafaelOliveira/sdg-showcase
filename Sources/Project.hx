@@ -9,9 +9,7 @@ import kha.System;
 import sdg.Sdg;
 import sdg.Engine;
 import sdg.atlas.Atlas;
-import sdg.manager.Mouse;
-import sdg.manager.Keyboard;
-import sdg.manager.GamePad;
+import sdg.manager.Manager.*;
 import sdg.collision.Hitbox;
 import sdg.graphics.text.BitmapText;
 import sdg.filters.*;
@@ -33,11 +31,8 @@ class Project
 
 	function assetsLoaded()
 	{
-		engine = new Engine(800, 600);
-
-		engine.addManager(new Mouse());
-		engine.addManager(new Keyboard());
-		engine.addManager(GamePad.getManager());
+		engine = new Engine(800, 600);				
+		engine.enable(KEYBOARD | MOUSE | GAMEPAD);
 
 		engine.persistentRender = persistentRender;
 
