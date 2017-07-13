@@ -6,7 +6,11 @@ import sdg.graphics.text.Text;
 import sdg.graphics.text.Text.TextAlign;
 import sdg.manager.Keyboard;
 import sdg.Sdg;
+import sdg.Object;
 import objects.Arrow;
+import kha.input.KeyCode;
+import sdg.manager.Mouse;
+import sdg.graphics.NinePatch;
 
 class Play extends Screen
 {
@@ -15,14 +19,13 @@ class Play extends Screen
 
 	var filterName:Text;
 
-	// Used to prevent the controls to switch screen
-	// to not affect player controls
-	var enableArrowKeys:Bool;
+	public var helpBtn:sdg.Object;
+	public var infoTxt:sdg.Object;
+	public var infoTxtSh:sdg.Object;
+	public var infoTxtBG:sdg.Object;
 
-	public function new(enableArrowKeys:Bool = true)
+	inline public function new()
 	{
-		this.enableArrowKeys = enableArrowKeys;
-
 		super();		
 	}
 
@@ -31,7 +34,7 @@ class Play extends Screen
 		updateFilter();
 	}
 
-	public function addControls(leftScreen:String, rightScreen:String)
+	inline public function addControls(leftScreen:String, rightScreen:String)
 	{
 		this.leftScreen = leftScreen;
 		this.rightScreen = rightScreen;
@@ -47,14 +50,49 @@ class Play extends Screen
 		var arrowFilterLeft = new Arrow(9, 9, true, function() changeFilter(-1), 0.5);
 		add(arrowFilterLeft);
 
-		filterName = new Text(Project.getFilterName(), Assets.fonts.Vera, 14, 70, { align: TextAlign.Center });
-		create(26, 11, filterName);
+		filterName = new Text(Project.getFilterName(), Assets.fonts.Vera, 14, 150, {align:TextAlign.Center});
+		create(16, 11, filterName);
 
-		var arrowFilterRight = new Arrow(99, 9, false, function() changeFilter(1), 0.5);
+		var arrowFilterRight = new Arrow(158, 9, false, function() changeFilter(1), 0.5);
 		add(arrowFilterRight);
-	}
 
-	function changeFilter(direction)
+
+		var mHelp = new Text(">", Assets.fonts.Oswald_Regular, 28, 0, {align:TextAlign.Center});
+		mHelp.color = kha.Color.White;
+		create(685, 3, mHelp);
+
+		var f1Txt = new Text("Help", Assets.fonts.Oswald_Regular, 28, 45, {align:TextAlign.Center});
+		
+		f1Txt.color = kha.Color.Cyan;
+		helpBtn = new sdg.Object(690, 5, f1Txt);
+		helpBtn.width = f1Txt.boxWidth;
+		helpBtn.height = f1Txt.boxHeight;
+		add(helpBtn);
+
+		var sTxt = "'F1' Help\n'-' or '=' Cycle Filters\n'[' or ']' Cycle Demos\n'Arrows' Move Character\n'R' Reset Character";
+	
+		var txtSh = new Text(sTxt, Assets.fonts.Oswald_Regular, 24, 200, {align:TextAlign.Left});
+		txtSh.color = 0xff696969;
+		infoTxtSh = new sdg.Object(570, 45, txtSh);
+		infoTxtSh.set_visible(false);
+		
+		infoTxtBG = new sdg.Object(559, 36, new NinePatch('button2', 7, 7, 8, 8, txtSh.boxWidth + 4, txtSh.boxHeight + 4 * 3));
+		infoTxtBG.graphic.alpha = 0.7;
+		infoTxtBG.graphic.color = 0xff696969;
+		infoTxtBG.set_visible(false);
+		
+
+		var txt = new Text(sTxt, Assets.fonts.Oswald_Regular, 24, 200, {align:TextAlign.Left});
+		txt.color =  kha.Color.White;		
+		infoTxt = new sdg.Object(569, 43, txt);
+		infoTxt.set_visible(false);
+
+		add(infoTxtBG);
+		add(infoTxtSh);
+		add(infoTxt);
+	}
+	
+	inline function changeFilter(direction)
 	{
 		Project.changeFilterIndex(direction);
 
@@ -72,27 +110,86 @@ class Play extends Screen
 		filterName.text = Project.getFilterName();
 	}
 
-	function updateFilter()
+	inline function updateFilter()
 	{
 		filter = Project.filters[Project.filterIndex];
 		filterName.text = Project.getFilterName();
+	}
+
+	inline public function SetF1Vis(v:Bool)
+	{
+		infoTxt.set_visible(v);
+		infoTxtSh.set_visible(v);
+		infoTxtBG.set_visible(v);
+	}
+	inline public function ToggleVis()
+	{
+		if(!infoTxt.visible)
+		{
+			SetF1Vis(true);
+		}
+		else
+		{
+			SetF1Vis(false);
+		}
 	}
 
 	override public function update()
 	{
 		super.update();
 		
-		if (enableArrowKeys)
+		//if(Keyboard.isAnyPressed()){trace(Keyboard.keysPressed);} //KeyCode Debug
+		
+		if(helpBtn.pointInside(Mouse.x, Mouse.y))
 		{
-			if (Keyboard.isPressed('left'))
-				Sdg.switchScreen(leftScreen);
-			else if (Keyboard.isPressed('right'))
-				Sdg.switchScreen(rightScreen);
+			if(helpBtn.graphic.color != kha.Color.Yellow)
+			{
+				helpBtn.graphic.color = kha.Color.Yellow;
+			}
+			if(Mouse.isAnyPressed())
+			{
+				helpBtn.graphic.color = kha.Color.Red;
+				ToggleVis();
+			}
+		}
+		else
+		{
+			if(helpBtn.graphic.color != kha.Color.Cyan)
+			{
+				helpBtn.graphic.color = kha.Color.Cyan;
+			}
 		}
 
-		if (Keyboard.isPressed('a'))
-			changeFilter(-1);
-		else if (Keyboard.isPressed('s'))
-			changeFilter(1);
+		if(Keyboard.isPressed(KeyCode.CloseBracket))
+		{
+			Sdg.switchScreen(rightScreen);
+			SetF1Vis(false);
+		}
+		else
+		{
+			if(Keyboard.isPressed(KeyCode.OpenBracket))
+			{
+				Sdg.switchScreen(leftScreen);
+				SetF1Vis(false);
+			}
+			if(Keyboard.isPressed(189) || Keyboard.isPressed(KeyCode.Equals)) //Equals varies per target
+			{
+				changeFilter(-1);
+			}
+			else
+			{ 
+				if(Keyboard.isPressed(187) || Keyboard.isPressed(KeyCode.HyphenMinus)) //HyphenMinus varies per target
+				{
+					changeFilter(1);
+				}
+				else
+				{
+					if(Keyboard.isPressed(KeyCode.F1)) 
+					{
+						ToggleVis();
+					}
+				}
+			}
+		}	
 	}
 }
