@@ -9,6 +9,7 @@ import sdg.manager.Keyboard;
 import sdg.components.Motion;
 import sdg.components.Animator;
 import sdg.manager.GamePad;
+import kha.input.KeyCode;
 
 class Player extends Object
 {
@@ -66,23 +67,23 @@ class Player extends Object
 
 		motion.acceleration.x = 0;		
 
-		if (Keyboard.isHeld('left') || gamepad.leftAnalog.x < 0)
+		if (Keyboard.isHeld(KeyCode.Left) || gamepad.leftAnalog.x < 0)
 		{
 			motion.acceleration.x = -0.7;
 			sprite.flip.x = true;	
 		}            
-        else if (Keyboard.isHeld('right') || gamepad.leftAnalog.x > 0)
+        else if (Keyboard.isHeld(KeyCode.Right) || gamepad.leftAnalog.x > 0)
 		{		
 			motion.acceleration.x = 0.7;
 			sprite.flip.x = false;
 		}
 
-		if ((Keyboard.isPressed('z') || Keyboard.isPressed('up') || gamepad.isPressed(GamePad.B_CIRCLE)) && onGround)
+		if ((Keyboard.isPressed(KeyCode.Z) || Keyboard.isPressed(KeyCode.Up) || gamepad.isPressed(GamePad.B_CIRCLE)) && onGround)
 		{
 			motion.velocity.y = -6;
 			onGround = false;
 		}
-		else if (Keyboard.isPressed('r'))
+		else if (Keyboard.isPressed(KeyCode.R))
 		{
 			onGround = false;
 			setPosition(70, 120);
