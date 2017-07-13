@@ -1,13 +1,13 @@
-======================================================
+------------------------------------------------------
 
 SDG Showcase updated for Kha/SDG July.09.2017
 
-======================================================
+------------------------------------------------------
 
-+: ES Shaders converted to SPIR-V
-+: Help menu
-+: KeyCodes/rebinded keys 
--: Arrow keys disabled
+[+] ES Shaders converted to SPIR-V.
+[+] Help menu.
+[+] KeyCodes/rebinded keys. 
+[-] Arrow keys disabled.
 
 
 ------------------------------------------------------
