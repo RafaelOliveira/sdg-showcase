@@ -1,11 +1,18 @@
+#version 450
+
 #ifdef GL_ES
 precision mediump float;
 #endif
 
-varying vec2 texCoord;
+in vec2 texCoord;
+in vec4 color;
+out vec4 fragColor;
+
+uniform sampler2D tex;
 
 uniform float amount;
-uniform sampler2D tex;
+uniform float diff;
+
 
 float rand(vec2 co)
 {
@@ -14,7 +21,7 @@ float rand(vec2 co)
 
 void main()
 {
-    vec4 color = texture2D(tex, texCoord);
+    vec4 color = texture(tex, texCoord);
 
     float diff = (rand(texCoord) - 0.5) * amount;
 
@@ -22,5 +29,5 @@ void main()
     color.g += diff;
     color.b += diff;
 
-    gl_FragColor = color;
+    fragColor = color;
 }

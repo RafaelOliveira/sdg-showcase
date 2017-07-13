@@ -1,16 +1,30 @@
+#version 450
+
 #ifdef GL_ES
 precision mediump float;
 #endif
 
-varying vec2 texCoord;
+in vec2 texCoord;
+in vec4 color;
+out vec4 fragColor;
 
 uniform sampler2D tex;
+
+uniform vec3 weights;
+
 uniform float hue;
 uniform float saturation;
+uniform float average;
+
+uniform float angle;
+uniform float s;
+uniform float c;
+uniform float len;
+
 
 void main() 
 {
-	vec4 color = texture2D(tex, texCoord);
+    vec4 color = texture(tex, texCoord);
 	
 	/* hue adjustment, wolfram alpha: RotationTransform[angle, {1, 1, 1}][{x, y, z}] */
 	float angle = hue * 3.14159265;
@@ -32,5 +46,5 @@ void main()
 	else
 		color.rgb += (average - color.rgb) * (-saturation);	
 	
-	gl_FragColor = color;
+	fragColor = color;
 }
