@@ -162,15 +162,15 @@ class Play extends Screen
 
 		if(Keyboard.isPressed(KeyCode.CloseBracket))
 		{
-			Sdg.switchScreen(rightScreen);
 			SetF1Vis(false);
+			Sdg.switchScreen(rightScreen);
 		}
 		else
 		{
 			if(Keyboard.isPressed(KeyCode.OpenBracket))
 			{
-				Sdg.switchScreen(leftScreen);
 				SetF1Vis(false);
+				Sdg.switchScreen(leftScreen);
 			}
 			if(Keyboard.isPressed(189) || Keyboard.isPressed(KeyCode.Equals)) //Equals varies per target
 			{
